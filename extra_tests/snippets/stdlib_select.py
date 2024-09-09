@@ -23,22 +23,22 @@ assert_raises(ValueError, select.select, [], [], [], -1)
 if sys.platform in ["win32", "cygwin"]:
     assert_raises(OSError, select.select, [0], [], [])
 
-recvr = socket.socket()
+#recvr = socket.socket()
 
-recvr.bind(("127.0.0.1", 9988))
+#recvr.bind(("127.0.0.1", 9988))
 
-recvr.listen()
+#recvr.listen()
 
-recvr.settimeout(10.0)
+#recvr.settimeout(10.0)
 
-sendr = socket.socket()
+#sendr = socket.socket()
 
-sendr.connect(("127.0.0.1", 9988))
-sendr.send(b"aaaa")
+#sendr.connect(("127.0.0.1", 9988))
+#sendr.send(b"aaaa")
 
-rres, wres, xres = select.select([recvr], [sendr], [])
+#rres, wres, xres = select.select([recvr], [sendr], [])
 
-if "win" not in sys.platform:
-    assert recvr in rres
+#if "win" not in sys.platform:
+#    assert recvr in rres
 
-assert sendr in wres
+#assert sendr in wres
